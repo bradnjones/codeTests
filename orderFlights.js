@@ -126,7 +126,7 @@ function findTripStart({origins, destinations}){
  * @param {Array} destinations - Array of destination airport codes
  */
 function inDestinations(aLegStart, destinations){
-    return notTripStart = destinations.find(aLegEnd => {
+    return destinations.find(aLegEnd => {
         return aLegStart === aLegEnd;
     })
 }
