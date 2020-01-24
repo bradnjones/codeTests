@@ -9,7 +9,7 @@
  */
 
 //TEST DATA
-let input = [
+const input = [
     {start: 'SFO', end: 'SEA'},
     {start: 'BOS', end: 'SFO'},
     {start: 'IAD', end: 'DEN'},
