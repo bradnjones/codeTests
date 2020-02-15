@@ -122,9 +122,9 @@ function sortLetters(lettersList){
  */
 function sortNumbers(numbersList){
     numbersList.sort((a,b) => {
-        let keyA = parseInt(a);
-        let keyB = parseInt(b);
-        return keyA - keyB;
+        let intA = parseInt(a);
+        let intB = parseInt(b);
+        return intA - intB;
     });
 }
 
@@ -136,9 +136,9 @@ function sortNumbers(numbersList){
  */
 function convertToSpaceDelimitedString(aList){
     let output = '';
-    for(let y=0; y<aList.length; y++){
-        let anItem = aList[y];
-        if(y === aList.length -1){
+    for(let i=0; i<aList.length; i++){
+        let anItem = aList[i];
+        if(i === aList.length -1){
             output += anItem;
         }else {
             output += anItem + ' ';
