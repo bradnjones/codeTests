@@ -1,14 +1,14 @@
 /**
  * PROBLEM STATEMENT:
  * 1 - Find all the values that are in both strings.
- * Order those values ascending numbers then letters (a-z)
- * Print the final filtered, sorted values in a manner like the following '1 2 23 A B'
+ * 2 - Order those values ascending numbers then letters (a-z)
+ * 3 - Print the final filtered, sorted values in a manner like the following '1 2 23 A B'
  */
 
 // let first = '1 2 3 A B C';
 // let second = 'X 11 G M 2 9 3 C N R';
-const first = 'Z 1 3 B J C 2 11 X A';
-const second = 'Z J X 11 G M 9 3 C N R 2 A';
+const first = 'Z 1 3 3 B J C 2 11 X A -1';
+const second = 'Z J X 11 3 G M 9 3 -1 C N R 2 A';
 
 /**
  * Main Function that orchestrates the execution of the code
@@ -70,12 +70,18 @@ function sortList(aList){
     let lettersList = [];
 
     populateLists(aList, numbersList, lettersList);
-    let sortedNumbersList = sortNumbers(numbersList.slice());
-    let sortedLettersList = sortLetters(lettersList.slice());
-    let combinedLists = [...sortedNumbersList, ...sortedLettersList];
+    sortNumbers(numbersList);
+    sortLetters(lettersList);
+    let combinedLists = [...numbersList, ...lettersList];
     return combinedLists;
 }
 
+/**
+ * Used to populate the number and letter lists from the main list
+ * @param {string[]} aList 
+ * @param {string[]} numbersList 
+ * @param {string[]} lettersList 
+ */
 function populateLists(aList, numbersList, lettersList){
     aList.forEach(anItem => {
         isLetter(anItem) ? lettersList.push(anItem) : numbersList.push(anItem);
@@ -105,7 +111,7 @@ function isLetter(value){
  * @returns string[]
  */
 function sortLetters(lettersList){
-    return lettersList.sort();
+    lettersList.sort();
 }
 
 /**
@@ -115,7 +121,7 @@ function sortLetters(lettersList){
  * @returns string[]
  */
 function sortNumbers(numbersList){
-    return numbersList.sort((a,b) => {
+    numbersList.sort((a,b) => {
         let keyA = parseInt(a);
         let keyB = parseInt(b);
         return keyA - keyB;
