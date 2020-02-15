@@ -7,7 +7,7 @@
 
 // let first = '1 2 3 A B C';
 // let second = 'X 11 G M 2 9 3 C N R';
-const first = 'Z 1 3 3 B J C 2 11 X A -1';
+const first = 'Z 1 3 B 3 J C 2 11 X A -1';
 const second = 'Z J X 11 3 G M 9 3 -1 C N R 2 A';
 
 /**
@@ -18,11 +18,14 @@ const second = 'Z J X 11 3 G M 9 3 -1 C N R 2 A';
     let second = b.split(' ');
     let matchingItems = [];
 
-    collectMatchingItems(first, second, matchingItems);
-    collectMatchingItems(second, first, matchingItems);
-
-    let filteredList = removeDuplicates(matchingItems.slice());
-    let sortedList = sortList(filteredList.slice());
+    collectMatchingItems(first, second, matchingItems); 
+    /**
+     * TODO: If an item occurs more than once in the first and not the second
+     * two are outputted for that item.  But, if it occurs twice in the second
+     * and not the first then only one is outputted.  Need to add this case to
+     * my solution.
+     */
+    let sortedList = sortList(matchingItems);
     console.log(convertToSpaceDelimitedString(sortedList));
 })(first, second);
 
